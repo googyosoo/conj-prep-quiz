@@ -1,44 +1,27 @@
 import React from 'react';
 import ContrastIcon from './icons/ContrastIcon';
-import ReasonIcon from './icons/ReasonIcon';
-import TimeIcon from './icons/TimeIcon';
-import ConditionIcon from './icons/ConditionIcon';
+import PersonThingIcon from './icons/PersonThingIcon';
+import SentenceIcon from './icons/SentenceIcon';
+import AdverbIcon from './icons/AdverbIcon';
+import XIcon from './icons/XIcon';
 
 interface LearningPageProps {
   onStartQuiz: () => void;
 }
 
-const CategoryCard: React.FC<{ 
+const InfoCard: React.FC<{ 
     icon: React.ReactNode;
     title: string; 
-    conjunctions: string; 
-    prepositions: string; 
-    conjExample: React.ReactNode; 
-    prepExample: React.ReactNode;
-}> = ({ icon, title, conjunctions, prepositions, conjExample, prepExample }) => (
+    description: React.ReactNode;
+    children: React.ReactNode;
+}> = ({ icon, title, description, children }) => (
     <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-6 transition-shadow hover:shadow-md">
-        <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b pb-2 flex items-center">
-            <span className="mr-3 text-indigo-500">{icon}</span>
+        <h3 className="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+            <span className="mr-3 text-cyan-500">{icon}</span>
             {title}
         </h3>
-        <div className="grid md:grid-cols-2 gap-x-6">
-            <div>
-                <h4 className="text-xl font-semibold text-indigo-600">접속사</h4>
-                <p className="font-mono text-sm text-slate-600 bg-slate-200 inline-block px-2 py-1 rounded mb-2">{conjunctions}</p>
-                <p className="text-slate-700">뒤에 <strong className="font-bold">주어(S) + 동사(V)</strong>가 오는 '절'을 이끕니다.</p>
-                <p className="mt-2 text-sm text-gray-800 bg-blue-50 p-3 rounded-lg border border-blue-200">
-                    <span className="font-bold text-blue-700">e.g.</span> {conjExample}
-                </p>
-            </div>
-            <div className="mt-4 md:mt-0">
-                <h4 className="text-xl font-semibold text-green-600">전치사</h4>
-                 <p className="font-mono text-sm text-slate-600 bg-slate-200 inline-block px-2 py-1 rounded mb-2">{prepositions}</p>
-                <p className="text-slate-700">뒤에 <strong className="font-bold">명사(구)</strong>가 옵니다.</p>
-                 <p className="mt-2 text-sm text-gray-800 bg-green-50 p-3 rounded-lg border border-green-200">
-                    <span className="font-bold text-green-700">e.g.</span> {prepExample}
-                </p>
-            </div>
-        </div>
+        <div className="pl-10 text-slate-600 mb-4">{description}</div>
+        {children}
     </div>
 );
 
@@ -46,54 +29,90 @@ const CategoryCard: React.FC<{
 const LearningPage: React.FC<LearningPageProps> = ({ onStartQuiz }) => {
   return (
     <div className="animate-fade-in">
-      <h2 className="text-3xl font-bold text-center mb-2">접속사 vs 전치사: 심화 학습 📝</h2>
-      <p className="text-center text-slate-600 mb-8">의미는 비슷하지만 쓰임은 다른, 내신-수능 빈출 어법 완벽 정리!</p>
+      <h2 className="text-3xl font-bold text-center mb-2">관계사 계속적 용법 📖</h2>
+      <p className="text-center text-slate-600 mb-8">선행사에 대한 부가 정보를 덧붙이는 콤마(,)의 마법!</p>
 
-      <CategoryCard 
+      <InfoCard 
         icon={<ContrastIcon className="w-8 h-8" />}
-        title="1. 양보/대조 (~에도 불구하고)"
-        conjunctions="although, though, even though"
-        prepositions="despite, in spite of"
-        conjExample={<><strong className="text-indigo-600">Although</strong> it was cold, he went swimming.</>}
-        prepExample={<><strong className="text-green-600">Despite</strong> the cold weather, he went swimming.</>}
-      />
+        title="1. 계속적 용법 vs 제한적 용법"
+        description="콤마(,) 하나로 의미가 어떻게 달라지는지 알아볼까요?"
+      >
+        <div className="grid md:grid-cols-2 gap-x-6">
+            <div>
+                <h4 className="text-xl font-semibold text-slate-700">제한적 용법 (콤마 X)</h4>
+                <p className="text-slate-600 text-sm mb-2">"~하는" 으로 해석하며, 선행사의 범위를 한정합니다.</p>
+                <p className="mt-2 text-sm text-gray-800 bg-gray-100 p-3 rounded-lg border border-gray-200">
+                    He has two sons <strong className="text-red-600">who became</strong> doctors.<br/>
+                    (그는 의사가 <strong className="text-red-600">된</strong> 아들 둘이 있다. → 아들이 더 있을 수 있음)
+                </p>
+            </div>
+            <div className="mt-4 md:mt-0">
+                <h4 className="text-xl font-semibold text-cyan-600">계속적 용법 (콤마 O)</h4>
+                <p className="text-slate-600 text-sm mb-2">"그런데 그는/그것은" 으로 해석하며, 부가 설명을 합니다.</p>
+                <p className="mt-2 text-sm text-gray-800 bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+                    He has two sons, <strong className="text-cyan-700">who became</strong> doctors.<br/>
+                    (그는 아들이 둘 있는데, <strong className="text-cyan-700">그들은</strong> 의사가 되었다. → 아들이 총 2명)
+                </p>
+            </div>
+        </div>
+      </InfoCard>
 
-      <CategoryCard 
-        icon={<ReasonIcon className="w-8 h-8" />}
-        title="2. 이유 (~때문에)"
-        conjunctions="because, as, since"
-        prepositions="because of, due to, owing to"
-        conjExample={<><strong className="text-indigo-600">Because</strong> the traffic was heavy, we were late.</>}
-        prepExample={<><strong className="text-green-600">Due to</strong> the heavy traffic, we were late.</>}
-      />
+      <InfoCard 
+        icon={<PersonThingIcon className="w-8 h-8" />}
+        title="2. 관계대명사: who, whom, which"
+        description="선행사가 사람인지 사물인지, 문장에서 어떤 역할을 하는지에 따라 알맞게 사용해요."
+      >
+         <div className="space-y-4 text-slate-700">
+            <div>
+              <h5 className="font-semibold text-lg">주격 (who / which)</h5>
+              <ul className="list-disc list-inside space-y-2 mt-1 pl-2">
+                  <li>I met Tom, <strong className="text-cyan-700">who</strong> is a famous musician. (선행사: Tom/사람)</li>
+                  <li>This is my laptop, <strong className="text-cyan-700">which</strong> has a fast processor. (선행사: laptop/사물)</li>
+              </ul>
+            </div>
+            <div>
+              <h5 className="font-semibold text-lg">목적격 (whom / which)</h5>
+              <ul className="list-disc list-inside space-y-2 mt-1 pl-2">
+                  <li>This is Mr. Kim, <strong className="text-cyan-700">whom</strong> everyone respects. (선행사: Mr. Kim/사람)</li>
+                  <li>I lost my new watch, <strong className="text-cyan-700">which</strong> I bought yesterday. (선행사: watch/사물)</li>
+              </ul>
+            </div>
+         </div>
+      </InfoCard>
+      
+      <InfoCard 
+        icon={<AdverbIcon className="w-8 h-8" />}
+        title="3. 관계부사: where, when, why"
+        description="시간, 장소, 이유에 대한 부가 설명을 할 때 사용해요. '전치사 + which'로 바꿀 수 있어요."
+      >
+        <ul className="list-disc list-inside space-y-3 text-slate-700">
+            <li>We moved to Paris, <strong className="text-cyan-700">where</strong> we lived for 3 years. (= in which)</li>
+            <li>I'll never forget 2022, <strong className="text-cyan-700">when</strong> I first traveled abroad. (= in which)</li>
+            <li>He told me the reason, <strong className="text-cyan-700">why</strong> he was late. (계속적 용법으로는 잘 쓰이지 않지만 참고!)</li>
+        </ul>
+      </InfoCard>
 
-      <CategoryCard 
-        icon={<TimeIcon className="w-8 h-8" />}
-        title="3. 시간 (~하는 동안)"
-        conjunctions="while"
-        prepositions="during, for"
-        conjExample={<><strong className="text-indigo-600">While</strong> I was watching the movie, my phone rang.</>}
-        prepExample={<><strong className="text-green-600">During</strong> the movie, my phone rang.</>}
-      />
+      <InfoCard 
+        icon={<SentenceIcon className="w-8 h-8" />}
+        title="4. 앞 문장 전체를 받는 which"
+        description="콤마(,)와 함께 쓰인 which는 단어뿐만 아니라, 앞 문장 전체를 선행사로 받을 수 있어요."
+      >
+        <p className="mt-2 text-sm text-gray-800 bg-cyan-50 p-3 rounded-lg border border-cyan-200">
+            She passed the exam, <strong className="text-cyan-700">which</strong> made her family happy.<br/>
+            (그녀는 시험에 합격했고, <strong className="text-cyan-700">그 사실이</strong> 그녀의 가족을 행복하게 만들었다.)<br/>
+            <span className="text-xs text-slate-500 mt-1 block">이때 which = She passed the exam</span>
+        </p>
+      </InfoCard>
 
-      <CategoryCard 
-        icon={<ConditionIcon className="w-8 h-8" />}
-        title="4. 조건 (만약 ~라면 / ~의 경우에)"
-        conjunctions="if, unless"
-        prepositions="in case of"
-        conjExample={<><strong className="text-indigo-600">Unless</strong> you study hard, you will fail the test.</>}
-        prepExample={<><strong className="text-green-600">In case of</strong> fire, break the glass.</>}
-      />
-
-      <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-6 rounded-lg my-8">
-        <h4 className="font-bold text-xl mb-2">✨ 구분 핵심 꿀팁!</h4>
-        <p>빈칸 뒤에 <strong className="underline">주어+동사(절)가 보이면 접속사</strong>, <strong className="underline">명사(구)만 덩그러니 있으면 전치사</strong>를 고르세요. 이것만 기억해도 90%는 해결됩니다!</p>
+       <div className="bg-red-100 border-l-4 border-red-500 text-red-800 p-6 rounded-lg my-8">
+        <h4 className="font-bold text-xl mb-2 flex items-center"><XIcon className="w-6 h-6 mr-2"/>🚨 핵심 암기! 사용 불가 규칙</h4>
+        <p>계속적 용법에서는 관계대명사 <strong className="underline">that</strong>과 <strong className="underline">what</strong>은 절대로 사용할 수 없습니다. 시험 단골 출제 포인트!</p>
       </div>
 
       <div className="text-center">
         <button
           onClick={onStartQuiz}
-          className="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-indigo-700 transition-transform transform hover:scale-105 shadow-lg"
+          className="bg-cyan-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-cyan-700 transition-transform transform hover:scale-105 shadow-lg"
         >
           실력 점검 퀴즈 풀기 →
         </button>

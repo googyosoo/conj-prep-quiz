@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback } from 'react';
 import type { Page, QuizQuestion } from './types';
 import { QUIZ_QUESTIONS } from './constants';
@@ -63,10 +62,10 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-slate-100 text-slate-800 font-sans p-4 sm:p-6 lg:p-8">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-700">
-                접속사 vs 전치사 마스터
+            <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">
+                관계대명사 계속적 용법 마스터
             </h1>
-            <p className="text-slate-600 mt-2">고1 필수 영문법 정복하기</p>
+            <p className="text-slate-600 mt-2">콤마(,)의 비밀을 파헤쳐보세요!</p>
         </header>
         <main className="bg-white rounded-2xl shadow-xl p-6 md:p-10">
             {renderPage()}

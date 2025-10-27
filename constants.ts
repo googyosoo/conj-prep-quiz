@@ -3,66 +3,66 @@ import type { QuizQuestion } from './types';
 export const QUIZ_QUESTIONS: QuizQuestion[] = [
   {
     id: 1,
-    sentence: '______ the traffic was heavy, I managed to arrive on time.',
-    options: ['Although', 'Despite'],
-    correctAnswer: 'Although',
-    correctAnswerType: '접속사',
-    explanation: "'the traffic was heavy'는 '주어(the traffic) + 동사(was)'를 갖춘 절입니다. 따라서 절을 이끌 수 있는 접속사 'Although'가 정답입니다. 'Despite'는 전치사입니다."
+    sentence: 'I have one brother, ______ is a doctor.',
+    options: ['who', 'that'],
+    correctAnswer: 'who',
+    correctAnswerType: '관계대명사',
+    explanation: "콤마(,) 뒤의 계속적 용법에서는 선행사가 사람일 때 'who'를 사용합니다. 'that'은 계속적 용법으로 사용할 수 없습니다."
   },
   {
     id: 2,
-    sentence: 'The outdoor event was canceled ______ the sudden downpour.',
-    options: ['because', 'due to'],
-    correctAnswer: 'due to',
-    correctAnswerType: '전치사',
-    explanation: "'the sudden downpour'는 명사구이므로, 앞에 명사(구)를 받는 전치사 'due to'가 와야 합니다. 'because'는 접속사로 뒤에 '주어+동사'가 와야 합니다."
+    sentence: 'He gave me this book, ______ was very interesting.',
+    options: ['which', 'what'],
+    correctAnswer: 'which',
+    correctAnswerType: '관계대명사',
+    explanation: "콤마(,) 뒤의 계속적 용법에서는 선행사가 사물일 때 'which'를 사용합니다. 'what'은 선행사를 포함하는 관계대명사로, 이 자리에 올 수 없습니다."
   },
   {
     id: 3,
-    sentence: 'You are not allowed to use your phone ______ the exam.',
-    options: ['while', 'during'],
-    correctAnswer: 'during',
-    correctAnswerType: '전치사',
-    explanation: "'the exam'은 명사구입니다. 따라서 '~하는 동안'이라는 의미의 전치사 'during'이 정답입니다. 'while'은 접속사로 'while you are taking the exam'과 같이 절을 이끕니다."
+    sentence: 'She suddenly quit her job, ______ surprised everyone.',
+    options: ['who', 'which'],
+    correctAnswer: 'which',
+    correctAnswerType: '관계대명사',
+    explanation: "관계대명사가 앞 문장 전체('그녀가 갑자기 일을 그만둔 것')를 선행사로 받을 때는 'which'를 사용해야 합니다."
   },
   {
     id: 4,
-    sentence: '______ his efforts, he failed the audition.',
-    options: ['In spite of', 'Even though'],
-    correctAnswer: 'In spite of',
-    correctAnswerType: '전치사',
-    explanation: "'his efforts'는 명사구이므로 전치사인 'In spite of'가 와야 합니다. 'Even though'는 접속사로 뒤에 'Even though he made efforts'처럼 절이 와야 합니다."
+    sentence: 'This is my teacher, ______ I respect very much.',
+    options: ['whom', 'that'],
+    correctAnswer: 'whom',
+    correctAnswerType: '관계대명사',
+    explanation: "계속적 용법에서 목적격 관계대명사 사람이 선행사일 때는 'whom'을 씁니다. 'who'도 구어체에서 쓰이지만, 'that'은 절대 사용할 수 없습니다."
   },
   {
     id: 5,
-    sentence: '______ she has a lot of experience, she didn’t get the job.',
-    options: ['Though', 'Owing to'],
-    correctAnswer: 'Though',
-    correctAnswerType: '접속사',
-    explanation: "'she has a lot of experience'는 '주어(she) + 동사(has)'를 갖춘 절이므로 접속사 'Though'가 정답입니다. 'Owing to'는 '~때문에'라는 의미의 전치사입니다."
+    sentence: 'We visited the Eiffel Tower, ______ is the symbol of Paris.',
+    options: ['that', 'which'],
+    correctAnswer: 'which',
+    correctAnswerType: '관계대명사',
+    explanation: "콤마(,)가 있으므로 계속적 용법입니다. 따라서 'that'은 사용할 수 없고, 사물 선행사를 받는 'which'가 정답입니다."
   },
   {
     id: 6,
-    sentence: 'I fell asleep ______ I was watching the boring lecture.',
-    options: ['for', 'while'],
-    correctAnswer: 'while',
-    correctAnswerType: '접속사',
-    explanation: "'I was watching the boring lecture'는 '주어(I) + 동사(was watching)'를 갖춘 절입니다. 따라서 '~하는 동안'이라는 의미의 접속사 'while'이 정답입니다. 'for'는 전치사로 뒤에 기간(for three hours)이나 명사구가 옵니다."
+    sentence: 'The man, ______ is wearing a blue shirt, is my uncle.',
+    options: ['who', 'what'],
+    correctAnswer: 'who',
+    correctAnswerType: '관계대명사',
+    explanation: "선행사 'The man'에 대한 부가 설명을 하는 계속적 용법이므로, 주격 관계대명사 'who'가 적절합니다. 'what'은 사용할 수 없습니다."
   },
   {
     id: 7,
-    sentence: 'You cannot enter the club ______ you are over 19.',
-    options: ['unless', 'in case of'],
-    correctAnswer: 'unless',
-    correctAnswerType: '접속사',
-    explanation: "'you are over 19'는 '주어(you) + 동사(are)'를 갖춘 절입니다. 따라서 '만약 ~가 아니라면'이라는 의미의 접속사 'unless'가 정답입니다. 'unless'는 'if ... not'과 같은 의미입니다."
+    sentence: 'Last summer, I visited London, ______ I stayed for two weeks.',
+    options: ['which', 'where'],
+    correctAnswer: 'where',
+    correctAnswerType: '관계부사',
+    explanation: "선행사가 장소(London)이고, 뒷 문장이 완전하므로 관계부사 'where'가 맞습니다. 'where'는 'and there' 또는 'in which'의 의미를 가집니다."
   },
   {
     id: 8,
-    sentence: '______ an emergency, please call 119 immediately.',
-    options: ['If', 'In case of'],
-    correctAnswer: 'In case of',
-    correctAnswerType: '전치사',
-    explanation: "'an emergency'는 명사구이므로, 전치사 역할을 하는 'In case of'가 정답입니다. 'If'는 접속사로 뒤에 'If there is an emergency'와 같이 절이 와야 합니다."
+    sentence: 'I remember the day, ______ we first met.',
+    options: ['which', 'when'],
+    correctAnswer: 'when',
+    correctAnswerType: '관계부사',
+    explanation: "선행사가 시간(the day)이고, 뒷 문장이 완전하므로 관계부사 'when'이 맞습니다. 'when'은 'and then' 또는 'on which'의 의미를 가집니다."
   }
 ];
