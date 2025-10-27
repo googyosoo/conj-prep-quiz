@@ -1,13 +1,26 @@
 import React from 'react';
+import ContrastIcon from './icons/ContrastIcon';
+import ReasonIcon from './icons/ReasonIcon';
+import TimeIcon from './icons/TimeIcon';
+import ConditionIcon from './icons/ConditionIcon';
 
 interface LearningPageProps {
   onStartQuiz: () => void;
 }
 
-const CategoryCard: React.FC<{ title: string; conjunctions: string; prepositions: string; conjExample: React.ReactNode; prepExample: React.ReactNode;}> = 
-({ title, conjunctions, prepositions, conjExample, prepExample }) => (
+const CategoryCard: React.FC<{ 
+    icon: React.ReactNode;
+    title: string; 
+    conjunctions: string; 
+    prepositions: string; 
+    conjExample: React.ReactNode; 
+    prepExample: React.ReactNode;
+}> = ({ icon, title, conjunctions, prepositions, conjExample, prepExample }) => (
     <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-6 transition-shadow hover:shadow-md">
-        <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b pb-2">{title}</h3>
+        <h3 className="text-2xl font-bold text-slate-800 mb-4 border-b pb-2 flex items-center">
+            <span className="mr-3 text-indigo-500">{icon}</span>
+            {title}
+        </h3>
         <div className="grid md:grid-cols-2 gap-x-6">
             <div>
                 <h4 className="text-xl font-semibold text-indigo-600">접속사</h4>
@@ -37,6 +50,7 @@ const LearningPage: React.FC<LearningPageProps> = ({ onStartQuiz }) => {
       <p className="text-center text-slate-600 mb-8">의미는 비슷하지만 쓰임은 다른, 내신-수능 빈출 어법 완벽 정리!</p>
 
       <CategoryCard 
+        icon={<ContrastIcon className="w-8 h-8" />}
         title="1. 양보/대조 (~에도 불구하고)"
         conjunctions="although, though, even though"
         prepositions="despite, in spite of"
@@ -45,6 +59,7 @@ const LearningPage: React.FC<LearningPageProps> = ({ onStartQuiz }) => {
       />
 
       <CategoryCard 
+        icon={<ReasonIcon className="w-8 h-8" />}
         title="2. 이유 (~때문에)"
         conjunctions="because, as, since"
         prepositions="because of, due to, owing to"
@@ -53,6 +68,7 @@ const LearningPage: React.FC<LearningPageProps> = ({ onStartQuiz }) => {
       />
 
       <CategoryCard 
+        icon={<TimeIcon className="w-8 h-8" />}
         title="3. 시간 (~하는 동안)"
         conjunctions="while"
         prepositions="during, for"
@@ -61,6 +77,7 @@ const LearningPage: React.FC<LearningPageProps> = ({ onStartQuiz }) => {
       />
 
       <CategoryCard 
+        icon={<ConditionIcon className="w-8 h-8" />}
         title="4. 조건 (만약 ~라면 / ~의 경우에)"
         conjunctions="if, unless"
         prepositions="in case of"
